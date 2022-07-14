@@ -18,6 +18,7 @@ pipeline {
                         case "All":
                         echo 'All Repo is executed'
                         stages {
+                            stage('Both Repo'){
                         Parallel {
                             stage ('Rep1'){
                                 steps{
@@ -28,7 +29,7 @@ pipeline {
                             Stege ('Rep2'){
                                 steps {
                                 echo 'Rep2 excuted'
-                                git branch: 'main', url: 'https://github.com/doddabasappa94/rep2.git'}}}}; 
+                                git branch: 'main', url: 'https://github.com/doddabasappa94/rep2.git'}}}}}; 
                         break
                     }
                   }
