@@ -1,10 +1,10 @@
 pipeline {
     agent any
     stages {
-          stage ('Repo1 checkout') {
+          stage ('Rep1 checkout') {
               steps{
-              checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/doddabasappa94/repo1.git']]])  
-              }
+              git branch: 'main', url: 'https://github.com/doddabasappa94/rep1.git'
+          }
           }
   }
 }
