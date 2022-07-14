@@ -8,12 +8,15 @@ pipeline {
                   script {
                     switch(params.CHOICE) {
                         case "Repo1":
+                        echo 'rep1 is executed'
                         git branch: 'main', url: 'https://github.com/doddabasappa94/rep1.git';
                         break
                         case "Repo2": 
+                        echo 'Rep2 is executed'
                         git branch: 'main', url: 'https://github.com/doddabasappa94/rep2.git'; 
                         break
                         case "All":
+                        echo 'All Repo is executed'
                         git branch: 'main', url: 'https://github.com/doddabasappa94/rep1.git'
                         git branch: 'main', url: 'https://github.com/doddabasappa94/rep2.git'; 
                         break
