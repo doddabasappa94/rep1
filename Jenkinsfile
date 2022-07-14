@@ -17,8 +17,14 @@ pipeline {
                         break
                         case "All":
                         echo 'All Repo is executed'
-                        git branch: 'main', url: 'https://github.com/doddabasappa94/rep1.git'
-                        git branch: 'main', url: 'https://github.com/doddabasappa94/rep2.git'; 
+                        Parallel{
+                            stage ('Rep1'){
+                                echo'Rep1 Executed'
+                               git branch: 'main', url: 'https://github.com/doddabasappa94/rep1.git'
+                            }
+                            Stege ('Rep2'){
+                                echo 'Rep2 excuted'
+                                git branch: 'main', url: 'https://github.com/doddabasappa94/rep2.git'}; 
                         break
                     }
                   }
