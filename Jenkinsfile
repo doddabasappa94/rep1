@@ -18,8 +18,9 @@ pipeline {
                         git branch: 'main', url: 'https://github.com/doddabasappa94/rep2.git'; 
                         break
                     }
-              }
+                  }
               
+              }
           }
-  }
+    }
 }
