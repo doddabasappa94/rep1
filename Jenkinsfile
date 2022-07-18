@@ -18,8 +18,10 @@ pipeline {
                                          }
                                      }
                                      stage ('test Rep1') {
+                                        steps {
                                             echo 'repo 1 test done'
                                          }
+                                     }
                                   }
                               stage('checkout 2'){
                                   parallel {
@@ -30,14 +32,16 @@ pipeline {
                                          }
                                      }
                                       stage ('test repo2') {
+                                        steps {
                                             echo 'repo 2 test done'
                                          }
+                                      }
                                   }
                                   }
                               }
                            };
                         break
-                        case "Repo1":
+                        case "Repo1"
                            stages{
                               stage('checkout 1'){
                                   parallel {
@@ -48,11 +52,13 @@ pipeline {
                                          }
                                      }
                                      stage ('test Rep1') {
+                                        steps {
                                             echo 'repo 1 test done'
                                          }
+                                     }
                                   }
                               }
-                           };
+                           }:
                         break
                     }
                     
