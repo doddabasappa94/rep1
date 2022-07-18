@@ -7,25 +7,41 @@ pipeline {
               steps{
                   script {
                     switch(params.CHOICE) {
-                        case "Repo1":
-                        echo 'rep1 is executed'
-                        git branch: 'main', url: 'https://github.com/doddabasappa94/rep1.git';
-                        break
-                        case "Repo2": 
-                        echo 'Rep2 is executed'
-                        git branch: 'main', url: 'https://github.com/doddabasappa94/rep2.git'; 
-                        break
                         case "All":
-                        echo 'All Repo is executed'
-                               echo'Rep1 Executed'
-                               git branch: 'main', url: 'https://github.com/doddabasappa94/rep1.git'
-                               echo 'Rep2 excuted'
-                               git branch: 'main', url: 'https://github.com/doddabasappa94/rep2.git'; 
-                        break
+                           stages{
+                              stage('checkout'){
+                                  parallel {
+                                     stage('main of repo1 checkout') {
+                                         steps{
+                                               echo 'rep1 is executed'
+                                               git branch: 'main', url: 'https://github.com/doddabasappa94/rep1.git'
+                                         }
+                                     }
+                                         stage ('test Rep1') {
+                                            echo 'repo 1 test done'
+                                         }
+                                  }
+                                  stage('checkout'){
+                                  parallel {
+                                     stage('main of repo2 checkout') {
+                                         steps{
+                                               echo 'rep2 is executed'
+                                               git branch: 'main', url: 'https://github.com/doddabasappa94/rep2.git'
+                                         }
+                                     }
+                                         stage ('test repo2') {
+                                            echo 'repo 2 test done'
+                                         }
+                                  }
+                                  }
+                              }
+                           };
+                           break
+                           
                     }
                   }
-              
               }
           }
     }
 }
+
