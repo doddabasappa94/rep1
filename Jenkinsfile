@@ -43,7 +43,6 @@ pipeline {
                         break
                         case "Repo1":
                            stages{
-                              stage('checkout 1'){
                                   parallel {
                                      stage('main of repo1 checkout') {
                                          steps{
@@ -55,7 +54,7 @@ pipeline {
                                         steps {
                                             echo 'repo 1 test done'
                                          }
-                                     }
+                                     
                                   }
                               }
                            };
