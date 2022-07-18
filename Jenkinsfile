@@ -41,7 +41,7 @@ pipeline {
                               }
                            };
                         break
-                        case "Repo1"
+                        case "Repo1":
                            stages{
                               stage('checkout 1'){
                                   parallel {
@@ -58,7 +58,7 @@ pipeline {
                                      }
                                   }
                               }
-                           }:
+                           };
                         break
                     }
                     
